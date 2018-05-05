@@ -155,3 +155,148 @@ for k in range(0,3):
     for nk in range(0,3):
         print(num_list[k][nk])
 
+random_num = random.randrange(0,100)
+
+
+#defining a function
+
+def addNumber(no1,no2):
+    temp = no1 + no2
+    return temp
+
+print(addNumber(1,2))
+
+
+#taking input from user
+
+#name = sys.stdin.readline()
+#print(name)
+
+#performing functions on strings
+
+long_string = "i'll play cricket today"
+
+#printing first four characters
+print(long_string[0:4])
+
+#printing last five characters
+
+print(long_string[-5:])
+
+#printing till last except for last 5 charcters
+
+print(long_string[:-5])
+
+#concatenating
+
+print(long_string[:4] + " dance")
+
+#captitalizing
+
+print(long_string.capitalize())
+print(long_string.find("floor"))
+
+#creating a file
+
+test_file = open("text.txt", "wb")
+
+print(test_file.mode)
+
+print(test_file.name)
+
+test_file.write(bytes("hola \n", "UTF-8"))
+
+test_file.close()
+
+#reading afile
+
+test_file = open("text.txt", "r+")
+
+text_in_file = test_file.read()
+
+print(text_in_file)
+
+
+class Animal:
+
+    __name = ""
+
+#making constructor
+
+    def __init__(self, name):
+        self.__name = name
+
+    #setters and getters
+
+    def set_name(self,name):
+        self.__name = name
+
+    def get_name(self):
+        return self.__name
+
+    def get_type(self):
+        return "animal"
+
+    def to_string(self):
+        return "{}is myname".format(self.__name)
+
+#making object of class and calling its function
+
+
+dog = Animal("anubhav")
+
+print(dog.to_string())
+
+
+class Dog(Animal):
+
+    __owner = ""
+
+    def __init__(self, namea, owner):
+
+        Animal.__init__(self, namea)
+        self.__owner = owner
+       # super(Dog, self).__init__(name)
+
+    def set_owner(self, owner):
+        self.__owner = owner
+
+    def get_owner(self):
+        return self.__owner
+
+    def get_type(self):
+        return "dog"
+
+    def to_string(self):
+        #self.set_name("hola")
+        return "{} is myname and wife is {}".format(self.get_name(), self.__owner)
+
+
+    #passing a parameter or not using None
+
+    def para(self, sound=None):
+
+        if sound is None:
+            print("no sound")
+
+        else:
+            print("sound is there")
+
+
+bruno = Dog("anubhav", "rupali")
+
+print(bruno.to_string())
+
+bruno.para()
+
+
+#polymorphism
+
+class AnimalType:
+    def animal_type(self, animal):
+        print(animal.get_type())
+
+
+type = AnimalType()
+type.animal_type(bruno)
+type.animal_type(dog)
